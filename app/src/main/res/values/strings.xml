@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Allam</string>
+    <string name="login">Login</string>
+    <string name="e_mail">E-Mail</string>
+    <string name="password">Password</string>
+    <string name="forget_password">Forget Password ?</string>
+    <string name="don_t_have_an_account">Don\'t have an account ?</string>
+    <string name="register">Register</string>
+    <string name="registration">Registration</string>
+    <string name="user_name">User Name</string>
+    <string name="navigation_drawer_open">open navigation drawer</string>
+    <string name="navigation_drawer_close">close navigation drawer</string>
+    <string name="first_title">First Title</string>
+    <string name="third_title">Third Title</string>
+    <string name="finish">finish</string>
+
+
+</resources>

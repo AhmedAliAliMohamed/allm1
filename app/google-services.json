@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "857669026274",
+    "firebase_url": "https://allam-8da29.firebaseio.com",
+    "project_id": "allam-8da29",
+    "storage_bucket": "allam-8da29.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:857669026274:android:73de0668f984a76be439bb",
+        "android_client_info": {
+          "package_name": "com.example.allm1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "857669026274-8gdlto27i8nfv5fmu5l3mmvpeva1j1se.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwnG3T66OoW1TIBOW3VpqhsT0oEgD4SmM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "857669026274-8gdlto27i8nfv5fmu5l3mmvpeva1j1se.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
