@@ -50,13 +50,8 @@ public class LearnPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         learnPageBinding = DataBindingUtil.setContentView(this, R.layout.activity_learn_page);
-        bundle = getIntent().getExtras();
-        names = bundle.getString("nameOfPage");
-        titles = bundle.getString("title");
-        item = bundle.getString("items");
-        getData(names, titles);
+        checkStrings();
         buttonAction();
-        setSharedPreferences();
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         learnPageBinding.RecLearnPage.setLayoutManager(layoutManager);
         sharedPreferences =getSharedPreferences(SHARED_PREFS ,MODE_PRIVATE);
@@ -69,15 +64,11 @@ public class LearnPage extends AppCompatActivity {
     }
 
     @Override
-    protected void onRestart() {
+    protected void onRestart()
+    {
         super.onRestart();
-        Bundle bundle1 =getIntent().getExtras();
-        names = bundle1.getString("pagenames");
-        titles = bundle1.getString("titless");
-        item = bundle1.getString("itmes");
-        Toast.makeText(this, ""+names+titles+item, Toast.LENGTH_SHORT).show();
-    }
 
+    }
     private void buttonAction() {
         learnPageBinding.inerToUpload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +85,6 @@ public class LearnPage extends AppCompatActivity {
 
 
     private void getData(final String nameOfPage, final String title) {
-        getSharedPreference();
         DatabaseReference reference = dataBase.getReference(nameOfPage);
         reference.child(title).child(title).child(item).addValueEventListener(new ValueEventListener() {
             @Override
@@ -140,12 +130,24 @@ public class LearnPage extends AppCompatActivity {
         editor.apply();
 
     }
+
+
     private void getSharedPreference(){
         sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         names = sharedPreferences.getString(NAME_OF_PAGE, "");
         titles = sharedPreferences.getString(TITLE, "");
         item = sharedPreferences.getString(ITEM,"");
 
+    }
+
+
+    private  void checkStrings(){
+        bundle = getIntent().getExtras();
+        names = bundle.getString("nameOfPage");
+        titles = bundle.getString("title");
+        item = bundle.getString("items");
+        getData(names, titles);
+        setSharedPreferences();
     }
 
 }
