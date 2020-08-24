@@ -196,6 +196,8 @@ public class ArabicHomePage extends AppCompatActivity  {
         });
     }
 
+
+
     private void logOut (){
         activityArabicHomePageBinding.navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

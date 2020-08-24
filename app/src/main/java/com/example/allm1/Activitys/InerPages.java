@@ -223,6 +223,7 @@ public class InerPages extends AppCompatActivity {
         });
     }
 
+
     //SET SHARED PREFERENCE
     private void setSharedPreferences() {
         sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
@@ -239,6 +240,8 @@ public class InerPages extends AppCompatActivity {
         }
     }
 
+
+
     //GET SHARED PREFERENCE
     private void getShaerdPreferences() {
         sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
@@ -247,6 +250,8 @@ public class InerPages extends AppCompatActivity {
         getData(nameOfPage, title);
 
     }
+
+
 
     private void logOut(){
         inerPagesBinding.navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {

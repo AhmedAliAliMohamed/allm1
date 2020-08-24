@@ -175,7 +175,10 @@ public class Third_Upload extends AppCompatActivity {
         });
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 
     private void clickButtonForUpload(){
         thirdUploadBinding.btnUploadThirdTitle.setOnClickListener(new View.OnClickListener() {
@@ -213,19 +216,21 @@ public class Third_Upload extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getSharedPreference();
-                if (names.equals("عربي")) {
-                    Toast.makeText(Third_Upload.this, "تم رفع الملف", Toast.LENGTH_SHORT).show();
-                    Intent toArabicPage = new Intent(Third_Upload.this, LearnPage.class);
-                    startActivity(toArabicPage);
 
-                } else if (names.equals("English")) {
-                    Toast.makeText(Third_Upload.this, "تم رفع الملف", Toast.LENGTH_SHORT).show();
-                    Intent toEnglishPage = new Intent(Third_Upload.this, LearnPage.class);
-                    startActivity(toEnglishPage);
-
-
-
-                }
+                onBackPressed();
+//                if (names.equals("عربي")) {
+//                    Toast.makeText(Third_Upload.this, "تم رفع الملف", Toast.LENGTH_SHORT).show();
+//                    Intent toArabicPage = new Intent(Third_Upload.this, LearnPage.class);
+//                    startActivity(toArabicPage);
+//
+//                } else if (names.equals("English")) {
+//                    Toast.makeText(Third_Upload.this, "تم رفع الملف", Toast.LENGTH_SHORT).show();
+//                    Intent toEnglishPage = new Intent(Third_Upload.this, LearnPage.class);
+//                    startActivity(toEnglishPage);
+//
+//
+//
+//                }
 
             }
         });

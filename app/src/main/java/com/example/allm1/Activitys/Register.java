@@ -95,21 +95,20 @@ public class Register extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if (task.isSuccessful()) {
-                            Toast.makeText(Register.this, "تم التسجيل بنجاح", Toast.LENGTH_SHORT).show();
                             userId = task.getResult().getUser().getUid();
                             uploadIamge();
                             Intent toLogin = new Intent(Register.this, Login.class);
                             startActivity(toLogin);
 
                         } else {
-                            Toast.makeText(Register.this, "فشل في التسجيل", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Register.this, "Failed to register, please check the data", Toast.LENGTH_SHORT).show();
                         }
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        registerBinding.txtRegEmail1.setError("برجاء ادخال البريد بشكل صحيح");
+                        registerBinding.txtRegEmail1.setError("Please enter the information correctly");
                     }
                 });
 
@@ -179,7 +178,7 @@ public class Register extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
 
-                            Toast.makeText(Register.this, "يوجد خطأ في التسجيل", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Register.this, "Failed to register, please Try Again", Toast.LENGTH_SHORT).show();
                         }
                     });
         }
@@ -213,10 +212,10 @@ public class Register extends AppCompatActivity {
         String emailInput = registerBinding.txtRegEmail1.getEditText().getText().toString();
 
         if (emailInput.isEmpty()) {
-            registerBinding.txtRegEmail1.setError("لا يمكن تجاهل هذا لحقل");
+            registerBinding.txtRegEmail1.setError("This cannot be ignored for a field");
             return false;
         } else if (!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
-            registerBinding.txtRegEmail1.setError("برجاء ادخل البريد بشكل صحيح");
+            registerBinding.txtRegEmail1.setError("Please enter the email correctly");
             return false;
 
         } else {
@@ -232,10 +231,10 @@ public class Register extends AppCompatActivity {
     private boolean validatePassword() {
         String passwordInput = registerBinding.txtRegPassword1.getEditText().getText().toString();
         if (passwordInput.isEmpty()) {
-            registerBinding.txtRegPassword1.setError("لا يمكن تجاهل هذا لحقل");
+            registerBinding.txtRegPassword1.setError("This cannot be ignored for a field");
             return false;
         } else if (!PASSWORD_PATTERN.matcher(passwordInput).matches()) {
-            registerBinding.txtRegPassword1.setError("كلة السر التي ادخلتها اقل من 6");
+            registerBinding.txtRegPassword1.setError("The total password you entered is less than 6");
             return false;
 
         }
@@ -254,7 +253,7 @@ public class Register extends AppCompatActivity {
         String userNameinput = registerBinding.txtRegUserName1.getEditText().getText().toString();
 
         if (userNameinput.isEmpty()) {
-            registerBinding.txtRegUserName1.setError("لا يمكن تجاهل هذا لحقل");
+            registerBinding.txtRegUserName1.setError("This cannot be ignored for a field");
             return false;
         } else {
             registerBinding.txtRegUserName1.setError(null);
@@ -267,7 +266,7 @@ public class Register extends AppCompatActivity {
     //checkImage
     private void checkImage() {
         if (filePath == null) {
-            Toast.makeText(this, "برجاء اختيار صورة", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please choose an image", Toast.LENGTH_SHORT).show();
         } else {
             validateEmail();
             validatePassword();
@@ -276,7 +275,7 @@ public class Register extends AppCompatActivity {
                 fireBaseRegistration(registerBinding.txtRegEmail1.getEditText().getText(), registerBinding.txtRegPassword.getText());
             }
             catch (Exception e){
-                Toast.makeText(this, "لا يمكن التسجيل قبل انهاء باقي الحقول", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "You cannot register before the rest of the fields are finished", Toast.LENGTH_SHORT).show();
             }
 
         }

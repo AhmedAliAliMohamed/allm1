@@ -67,6 +67,7 @@ public class LearnPage extends AppCompatActivity {
     protected void onRestart()
     {
         super.onRestart();
+        getSharedPreference();
 
     }
     private void buttonAction() {
@@ -128,6 +129,7 @@ public class LearnPage extends AppCompatActivity {
         editor.putString(TITLE, titles);
         editor.putString(ITEM,item);
         editor.apply();
+        getData(names,titles);
 
     }
 

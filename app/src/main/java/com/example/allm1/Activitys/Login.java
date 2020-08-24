@@ -82,10 +82,10 @@ public class Login extends AppCompatActivity {
         String emailInput = loginBinding.txtEmail.getEditText().getText().toString();
 
         if (emailInput.isEmpty()) {
-            loginBinding.txtEmail.setError("لا يمكن تجاهل هذا لحقل");
+            loginBinding.txtEmail.setError("This cannot be ignored for a field");
             return false;
         } else if (!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
-            loginBinding.txtEmail.setError("برجاء ادخل البريد بشكل صحيح");
+            loginBinding.txtEmail.setError("Please enter the email correctly");
             return false;
 
         } else {
@@ -102,10 +102,10 @@ public class Login extends AppCompatActivity {
         String passwordInput = loginBinding.txtPassword.getEditText().getText().toString();
 
         if (passwordInput.isEmpty()) {
-            loginBinding.txtPassword.setError("لا يمكن تجاهل هذا لحقل");
+            loginBinding.txtPassword.setError("This cannot be ignored for a field");
             return false;
         } else if (!PASSWORD_PATTERN.matcher(passwordInput).matches()) {
-            loginBinding.txtPassword.setError("برجاء ادخل كلة السر بشكل صحيح");
+            loginBinding.txtPassword.setError("Please enter the full password correctly");
             return false;
 
         } else {
@@ -153,7 +153,7 @@ public class Login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
                         try {
                             if (task.getResult().getSignInMethods().size() == 0) {
-                                loginBinding.txtEmail.setError("هذا البريد غير موجود ");
+                                loginBinding.txtEmail.setError("This mail does not exist ");
                             } else {
 
                             }
@@ -189,11 +189,6 @@ public class Login extends AppCompatActivity {
             }
         });
     }
-
-
-
-
-
 
 
 
