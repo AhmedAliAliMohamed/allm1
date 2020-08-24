@@ -64,12 +64,13 @@ public class LearnPage extends AppCompatActivity {
     }
 
     @Override
-    protected void onRestart()
-    {
+    protected void onRestart() {
         super.onRestart();
         getSharedPreference();
 
     }
+
+
     private void buttonAction() {
         learnPageBinding.inerToUpload.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -132,7 +132,7 @@ public class Third_Upload extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(Third_Upload.this, "لم يتم رفع الملف تحقق من وجود الانترنت", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Third_Upload.this, "File not uploaded Check for internet presence", Toast.LENGTH_SHORT).show();
                         }
                     });
         }
@@ -156,7 +156,7 @@ public class Third_Upload extends AppCompatActivity {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(Third_Upload.this, "لم يتم تنزيل الملف برجاء التحقق من جودة الشبكة", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Third_Upload.this, "The file has not been downloaded. Please check the network quality", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -175,10 +175,14 @@ public class Third_Upload extends AppCompatActivity {
         });
     }
 
+
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
     }
+
+
 
     private void clickButtonForUpload(){
         thirdUploadBinding.btnUploadThirdTitle.setOnClickListener(new View.OnClickListener() {
@@ -216,26 +220,13 @@ public class Third_Upload extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getSharedPreference();
-
                 onBackPressed();
-//                if (names.equals("عربي")) {
-//                    Toast.makeText(Third_Upload.this, "تم رفع الملف", Toast.LENGTH_SHORT).show();
-//                    Intent toArabicPage = new Intent(Third_Upload.this, LearnPage.class);
-//                    startActivity(toArabicPage);
-//
-//                } else if (names.equals("English")) {
-//                    Toast.makeText(Third_Upload.this, "تم رفع الملف", Toast.LENGTH_SHORT).show();
-//                    Intent toEnglishPage = new Intent(Third_Upload.this, LearnPage.class);
-//                    startActivity(toEnglishPage);
-//
-//
-//
-//                }
 
             }
         });
 
     }
+
 
     private void setSharedPreferences(){
         sharedPreferences = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
@@ -252,6 +243,7 @@ public class Third_Upload extends AppCompatActivity {
         editor.apply();
 
     }
+
 
     private void getSharedPreference(){
         sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);

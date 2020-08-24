@@ -83,6 +83,8 @@ public class SecondUpload extends AppCompatActivity {
 
     }
 
+
+
     //Show Image In Screen
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -107,6 +109,8 @@ public class SecondUpload extends AppCompatActivity {
         }
     }
 
+
+
     //Upload Image
     private void uploadImage() {
         if (filePath != null) {
@@ -127,6 +131,8 @@ public class SecondUpload extends AppCompatActivity {
         }
 
     }
+
+
 
     // Download Image Url
     private void downloadImageUrl() {
@@ -149,6 +155,8 @@ public class SecondUpload extends AppCompatActivity {
 
     }
 
+
+
     //Upload To Realtime
     private void uploadOnRealTime(final String imageUrl) {
         model1 = new ModelOfInnerArabicAndEnglishPage(imageUrl, innerTitle);
@@ -162,24 +170,26 @@ public class SecondUpload extends AppCompatActivity {
         });
     }
 
+
+
     //Click For Upload
     private void clickButtonForUpload() {
         secondUploadBinding.btnUploadFirstTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (filePath == null || secondUploadBinding.txtSecondTitle.equals("")) {
-                    Toast.makeText(SecondUpload.this, "برجاء اختيار الصورة", Toast.LENGTH_SHORT).show();
-                    secondUploadBinding.txtSecondTitle.setError("لايمكن تجاهل هذا الحقل");
+                    Toast.makeText(SecondUpload.this, "Please choose the image", Toast.LENGTH_SHORT).show();
+                    secondUploadBinding.txtSecondTitle.setError("This field cannot be ignored");
                 } else {
                     uploadImage();
                     if (pageName.equals("عربي")) {
-                        Toast.makeText(SecondUpload.this, "تم رفع الملف", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SecondUpload.this, "The file has been uploaded", Toast.LENGTH_SHORT).show();
                         Intent toArabicPage = new Intent(SecondUpload.this, InerPages.class);
                         startActivity(toArabicPage);
                         finish();
 
                     } else if (pageName.equals("English")) {
-                        Toast.makeText(SecondUpload.this, "تم رفع الملف", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SecondUpload.this, "The file has been uploaded", Toast.LENGTH_SHORT).show();
                         Intent toEnglishPage = new Intent(SecondUpload.this, InerPages.class);
                         startActivity(toEnglishPage);
                         finish();

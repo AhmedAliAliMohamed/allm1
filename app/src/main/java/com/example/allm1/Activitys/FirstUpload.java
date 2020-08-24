@@ -128,12 +128,12 @@ public class FirstUpload extends AppCompatActivity {
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             downloadImage();
                             if (pageName.equals("عربي")) {
-                                Toast.makeText(FirstUpload.this, "تم رفع الملف", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(FirstUpload.this, "The file has been uploaded", Toast.LENGTH_SHORT).show();
                                 Intent toArabicPage = new Intent(FirstUpload.this, ArabicHomePage.class);
                                 startActivity(toArabicPage);
                                 finish();
                             } else if (pageName.equals("English")) {
-                                Toast.makeText(FirstUpload.this, "تم رفع الملف", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(FirstUpload.this, "The file has been uploaded", Toast.LENGTH_SHORT).show();
                                 Intent toEnglishPage = new Intent(FirstUpload.this, EnglishHomePage.class);
                                 startActivity(toEnglishPage);
                                 finish();
@@ -145,11 +145,11 @@ public class FirstUpload extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
 
-                            Toast.makeText(FirstUpload.this, "لم يتم رفع الملف", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(FirstUpload.this, "The file has been uploaded", Toast.LENGTH_SHORT).show();
                         }
                     });
         } else {
-            Toast.makeText(this, "برجاء اختيار صوره اولاً", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please choose a picture first", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -192,7 +192,7 @@ public class FirstUpload extends AppCompatActivity {
     //Method For UploadImage and Name On Realtime
     private void uploadImageRealtime(final String fileImage) {
         if (title.equals("")) {
-            activityFirstUploadBinding.txtFirstUpload.setError("لا يمكن تجاهل هذا الحقل");
+            activityFirstUploadBinding.txtFirstUpload.setError("This field cannot be ignored");
         } else {
             model = new ModelOfArabicAndEnglishPage(title, fileImage);
             databaseReference.child(pageName).child(title).setValue(model);
